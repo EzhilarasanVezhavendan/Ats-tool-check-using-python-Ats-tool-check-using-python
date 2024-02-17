@@ -86,8 +86,8 @@ email = ', '.join(email_addresses)
             mydb.commit()
           Selection Or Rejection Will Be Based Upon The ATS Score
             
-finally:
-    try:
+    finally:
+      try:
         pdfFileObj.close()
     except NameError:
         pass  # pdfFileObj may not be defined if an exception occurred before it was assigned
@@ -96,5 +96,5 @@ finally:
         mydb.close()
     except NameError:
         pass  # mycursor or mydb may not be defined if an exception occurred before they were assigned
-Closing All The Opened Objects In The Finally Block
+    Closing All The Opened Objects In The Finally Block
       
