@@ -11,7 +11,7 @@ coe=True
 apply_after=0
 try:
     Ats_score = 0
-    l=[]
+    last_applied_date=[]
     result_list = []
     # Connecting  to the MySQL server
     mydb = mysql.connect(
@@ -21,7 +21,7 @@ try:
         database="science_day" 
     )
     mycursor = mydb.cursor()
-    # Executing a SELECT query.
+    # Executing a SELECT querys.
     role_query = "SELECT role FROM science_day.keyword_role"
     mycursor.execute(role_query) 
     role_results=mycursor.fetchall()
@@ -52,15 +52,17 @@ try:
     for i in range(num_pages):
         pageObj = pdfReader.pages[i]
         extracted_text = pageObj.extract_text().lower()
-        extracted_text = extracted_text.replace("/", "").replace("\xa0", "").replace("\n", " ")
+        extracted_text = extracted_text.replace("/", "").replace("\xa0", "").replace("\n", " ")#Repalcing the unwanted values
         extracted += extracted_text
         vueb.extend(extracted.split())  # Adding In List
         mobile_numbers = indian_mobile_pattern.findall(extracted)
         email_addresses = email_pattern.findall(extracted)
         email = ', '.join(email_addresses)
+        #Converting the Mail and Mobile Number To Str Format To Update in Database
         mb_num = ', '.join(mobile_numbers)
     if (mobile_numbers and email_addresses == []):
         sys.exit("No mobile numbers or email addresses found in the PDF.")
+        #Exiting Here Because Useless To Execute An Ats Without Knowing The Contact Information Of An Person
     for b in result_list:
         if b in vueb:
             Ats_score += 1
@@ -79,10 +81,10 @@ try:
         if(rejected_result != []):
             coe=False
         for bb in rejected_result:
-            l.extend(bb)
-        extracted_date=l[0]
-        extracted_month=l[1]
-        extracted_year=l[2]     
+            last_applied_date.extend(bb)
+        extracted_date=last_applied_date[0]
+        extracted_month=last_applied_date[1]
+        extracted_year=last_applied_date[2]     
 #given_date = datetime(2022, 5, 17)
         given_date = datetime(extracted_year,extracted_month,extracted_date)
         date_difference=current_date_time-given_date
