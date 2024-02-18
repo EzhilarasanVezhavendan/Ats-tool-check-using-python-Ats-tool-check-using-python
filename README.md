@@ -3,6 +3,7 @@ Ats Resume tool To Filter The candidate by Their Resume Pdf File using the pytho
 Note: 
   If An candidate is Rejected Means He Could Only Able TO Apply After 100 Days
       To Do Before execution:
+      
              1): import sys
               import PyPDF2.
               import datetime
@@ -21,26 +22,27 @@ Note:
     # Gets The Cursor Object
     role_query = "SELECT role FROM science_day.keyword_role"
        #Getting The Total Nmber of Available Role From The DataBase
-  mycursor.execute(role_query) 
-    #This Line Will Excute The Given MYSQL Qury
-  role_results=mycursor.fetchall()
-  This Line Will Fetch All Data From The DataBase
   
+    mycursor.execute(role_query) 
+    #This Line Will Excute The Given MYSQL Qury
+    role_results=mycursor.fetchall()
+        #This Line Will Fetch All Data From The DataBase
+        
     print("The Available Roles Are")
     for item in range (len(role_results)):
         print(f"Role ID => {item} : {role_results[item][0]}")
     applied_role=int(input("Enter Role Id To Apply :"))
     role=str(role_results[applied_role][0])
     query = "SELECT Keyword1, Keyword2, Keyword3, Keyword4, Keyword5 FROM science_day.keyword_role WHERE Role='{}'".format(role)
-  Fetching the Keywords According To The Given Role
+  3Fetching the Keywords According To The Given Role
 
-  pdfFileObj = open('check.pdf', 'rb')
-  #To Open The Pdf File
+    pdfFileObj = open('check.pdf', 'rb')
+    #To Open The Pdf File
     Make Sure to Give PDf File In The ' ' Single or Double Quotes
     Make Sure To Give Your Pdf Directory Correctly
-extracted_text = extracted_text.replace("/", "").replace("\xa0", "").replace("\n", " ")#Repalcing the unwanted values
-
-email = ', '.join(email_addresses)
+    extracted_text = extracted_text.replace("/", "").replace("\xa0", "").replace("\n", " ")#Repalcing the unwanted values
+  
+    email = ', '.join(email_addresses)
         #Converting the Mail and Mobile Number To Str Format To Update in Database
         mb_num = ', '.join(mobile_numbers)
 
