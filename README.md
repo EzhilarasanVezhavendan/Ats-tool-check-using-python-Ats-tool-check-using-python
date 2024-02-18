@@ -1,9 +1,9 @@
 # Ats-Tool-Using-Python
-Ats Resume verification tool using the python program and updates the selected candidate to the separate database and rejected canditate in the sepereate repository
+Ats Resume tool To Filter The candidate by Their Resume Pdf File using the python program and updates the selected candidate to the separate database and rejected candidate in the separate repository
 Note: 
-  If AN Canditate is Rejected Means He Could Only Able TO Apply After 100 Days
-      To Do Before excution:
-             1):  import sys
+  If An candidate is Rejected Means He Could Only Able TO Apply After 100 Days
+      To Do Before execution:
+             1): import sys
               import PyPDF2.
               import datetime
               import re
@@ -11,7 +11,7 @@ Note:
           Give "pip install module name"
           To Import All This Module
               2:)  Need To Check The Pdf file Present In The Same Directory and Given it's name Correctly
-              3:)Databse Should Be Neede To Created By Yourself 
+              3:)Databse Should Be Needed To Created By Yourself 
     mydb = mysql.connect(
         host="localhost",
         user="root",  # Give Your Mysql Database User Name
@@ -32,7 +32,7 @@ Note:
     applied_role=int(input("Enter Role Id To Apply :"))
     role=str(role_results[applied_role][0])
     query = "SELECT Keyword1, Keyword2, Keyword3, Keyword4, Keyword5 FROM science_day.keyword_role WHERE Role='{}'".format(role)
-  Fetching the Keywords According To The Given Usage
+  Fetching the Keywords According To The Given Role
 
   pdfFileObj = open('check.pdf', 'rb')
   #To Open The Pdf File
@@ -66,14 +66,14 @@ email = ', '.join(email_addresses)
       #CID is An PRIMary Key
     def reject_reterive(cid):
         rejected_query= "SELECT current_year,current_month,current_day FROM science_day.rejected_canditae WHERE cid='{}'".format(cid)
-    Reteriving the canditate date if he was rejected Previously
+    Reteriving the candidate date if he was rejected Previously
     if Rejected Means He Could Only Able TO apply After The 100 Days
 
      if(coe):
      The COE Will Be True in Ony 2 Conditions
-       1)If The Canditate does not applied for this Previously
+       1)If The candidate does not applied for this Previously
                  (OR)
-       2)The Canditate Could Apply After 100 of Being Rejected From The ATS Tool
+       2)The candidate Could Apply After 100 of Being Rejected From The ATS Tool
         if Ats_score >= 4:
             insert_query1 = "INSERT INTO slected_canditate (email,mobile_number,cid) VALUES (%s, %s, %s)"
             # Execute the update query with values
@@ -96,5 +96,8 @@ email = ', '.join(email_addresses)
         mydb.close()
     except NameError:
         pass  # mycursor or mydb may not be defined if an exception occurred before they were assigned
-    Closing All The Opened Objects In The Finally Block
+    Closing All The Opened Objects In The Finally Block+
+    
+                                 Thank you very much For Using This Ats To Filter The candidate
+                                               ~~Herby EZHILARASAN VEZHAVENDAN 
       
