@@ -1,5 +1,5 @@
 # Ats-Tool-Using-Python
-Ats verification tool using the python program and updates the selected candidate to the separate database and rejected canditate in the sepereate repository
+Ats Resume verification tool using the python program and updates the selected candidate to the separate database and rejected canditate in the sepereate repository
 Note:
   If AN Canditate is Rejected Means He Could Only Able TO Apply After 100 Days
       To Do Before excution:
