@@ -1,5 +1,5 @@
 # Ats-Tool-Using-Python
-Ats Resume tool To Filter The candidate by Their Resume Pdf File using the python program and updates the selected candidate to the separate database and rejected candidate in the separate repository
+Ats Resume tool To Filter The candidate by Their Resume Pdf File using the python program and updates the selected candidate to the separate database and rejected candidate in the separate repository Note: If A candidate is Rejected Means He Could Only be Able to Apply After 100 Days.
 Note: 
   If An candidate is Rejected Means He Could Only Able To Apply After 100 Days
       To Do Before execution:
