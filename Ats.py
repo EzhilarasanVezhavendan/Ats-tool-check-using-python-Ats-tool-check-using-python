@@ -13,6 +13,7 @@ try:
     Ats_score = 0
     last_applied_date=[]
     result_list = []
+    
     # Connecting  to the MySQL server
     mydb = mysql.connect(
         host="localhost",
@@ -66,6 +67,7 @@ try:
     for b in result_list:
         if b in vueb:
             Ats_score += 1
+            result_list.remove(b)
     if (email_addresses == []):
         email = "xyz"
         cid = mb_num
