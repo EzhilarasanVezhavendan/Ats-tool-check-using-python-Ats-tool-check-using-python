@@ -12,8 +12,7 @@ apply_after=0
 try:
     Ats_score = 0
     last_applied_date=[]
-    result_list = []
-    
+    result_list = []   
     # Connecting  to the MySQL server
     mydb = mysql.connect(
         host="localhost",
